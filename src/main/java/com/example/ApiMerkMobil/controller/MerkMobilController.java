@@ -22,7 +22,7 @@ public class MerkMobilController {
 
     @GetMapping("/{id}")
     public Optional<MerkMobil> getMerkMobilById(@PathVariable Long id) {
-        return merkMobilService.getMerkMobilById(id);
+        return Optional.ofNullable(merkMobilService.getMerkMobilById(id));
     }
 
     @PostMapping
@@ -39,4 +39,5 @@ public class MerkMobilController {
     public void deleteMerkMobil(@PathVariable Long id) {
         merkMobilService.deleteMerkMobil(id);
     }
+
 }

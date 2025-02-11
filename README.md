@@ -27,6 +27,13 @@ API ini menyediakan endpoint untuk mengelola data **Merk Mobil** serta autentika
 - JWT digunakan untuk melindungi endpoint, sehingga hanya user yang terautentikasi yang dapat mengakses operasi tertentu.
 - Proyek ini dibuat dengan pemisahan yang jelas antara Controller, Service, Repository, dan Security, sehingga memudahkan maintaince atau penambahan fitur
 ---
+## Feature
+- List Semua Data Merk Mobil
+- Menambahkan Data Merk Mobil
+- Menampilkan Data Merk Mobil
+- Mengubah Data Merk Mobil
+- Delete Data Merk Mobil
+- Error Handler endpoint
 
 # API Specification - Merk Mobil API
 

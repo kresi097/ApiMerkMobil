@@ -18,17 +18,30 @@ public class MerkMobilService {
         return merkMobilRepository.findAll();
     }
 
-    public Optional<MerkMobil> getMerkMobilById(Long id) {
-        return merkMobilRepository.findById(id);
+    public MerkMobil getMerkMobilById(Long id) {
+        return merkMobilRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Merk mobil dengan id " + id + " tidak ditemukan."));
     }
+
 
     public MerkMobil createMerkMobil(MerkMobil merkMobil) {
         return merkMobilRepository.save(merkMobil);
     }
 
     public MerkMobil updateMerkMobil(Long id, MerkMobil updatedMerkMobil) {
-        updatedMerkMobil.setId(id);
-        return merkMobilRepository.save(updatedMerkMobil);
+        Optional<MerkMobil> existingOptional = merkMobilRepository.findById(id);
+        if (!existingOptional.isPresent()) {
+            // Melempar exception jika data tidak ditemukan
+            throw new RuntimeException("Merk mobil dengan id " + id + " tidak ditemukan.");
+        }
+
+        MerkMobil existing = existingOptional.get();
+        // Perbarui field yang diperlukan
+        existing.setNama(updatedMerkMobil.getNama());
+        existing.setTahunBerdiri(updatedMerkMobil.getTahunBerdiri());
+        existing.setNegaraAsal(updatedMerkMobil.getNegaraAsal());
+
+        return merkMobilRepository.save(existing);
     }
 
     public void deleteMerkMobil(Long id) {
