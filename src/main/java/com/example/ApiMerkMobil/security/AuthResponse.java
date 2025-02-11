@@ -1,13 +1,13 @@
 package com.example.ApiMerkMobil.security;
 
 public class AuthResponse {
-    private final String bearer;
+    private final String token;
 
     public AuthResponse(String token) {
-        this.bearer = token;
+        this.token = token;
     }
 
     public String getToken() {
-        return bearer;
+        return token;
     }
 }
