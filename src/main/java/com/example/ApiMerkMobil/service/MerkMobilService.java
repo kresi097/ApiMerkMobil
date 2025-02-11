@@ -25,8 +25,15 @@ public class MerkMobilService {
 
 
     public MerkMobil createMerkMobil(MerkMobil merkMobil) {
+        // Validasi: Periksa apakah sudah ada data merk mobil dengan nama yang sama
+        Optional<MerkMobil> existing = merkMobilRepository.findByNama(merkMobil.getNama());
+        if (existing.isPresent()) {
+            throw new RuntimeException("Merk mobil dengan nama '" + merkMobil.getNama() + "' sudah ada.");
+        }
+
         return merkMobilRepository.save(merkMobil);
     }
+
 
     public MerkMobil updateMerkMobil(Long id, MerkMobil updatedMerkMobil) {
         Optional<MerkMobil> existingOptional = merkMobilRepository.findById(id);
