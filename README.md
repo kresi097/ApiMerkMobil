@@ -22,7 +22,11 @@ API ini menyediakan endpoint untuk mengelola data **Merk Mobil** serta autentika
 - **Lombok**
 
 ---
-
+## Catatan
+- Response API disajikan dalam format JSON.
+- JWT digunakan untuk melindungi endpoint, sehingga hanya user yang terautentikasi yang dapat mengakses operasi tertentu.
+- Proyek ini dibuat dengan pemisahan yang jelas antara Controller, Service, Repository, dan Security, sehingga memudahkan maintaince atau penambahan fitur
+---
 
 # API Specification - Merk Mobil API
 
