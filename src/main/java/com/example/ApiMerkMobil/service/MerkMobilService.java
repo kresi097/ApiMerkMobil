@@ -52,6 +52,12 @@ public class MerkMobilService {
     }
 
     public void deleteMerkMobil(Long id) {
+        // Cek
+        if (!merkMobilRepository.existsById(id)) {
+            throw new RuntimeException("Merk mobil dengan id " + id + " tidak ditemukan.");
+        }
+        // Jika ada
         merkMobilRepository.deleteById(id);
     }
+
 }

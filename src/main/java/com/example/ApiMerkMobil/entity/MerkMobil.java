@@ -1,10 +1,14 @@
 package com.example.ApiMerkMobil.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "merk_mobil")
 public class MerkMobil {
     @Id
